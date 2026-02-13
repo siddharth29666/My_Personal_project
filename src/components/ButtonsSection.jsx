@@ -29,17 +29,19 @@ const ButtonsSection = ({ onYes }) => {
                 Yes Forever 💖
             </motion.button>
 
-            {/* NO Button */}
-            <motion.button
-                initial={false}
-                animate={noBtnState ? { x: noBtnState.x, y: noBtnState.y } : { x: 0, y: 0 }}
-                transition={{ duration: 0.1, ease: "linear" }} // Fast instant movement
-                onMouseEnter={moveNoButton}
-                onTouchStart={moveNoButton}
-                className={`pointer-events-auto px-10 py-4 bg-white text-gray-400 font-body font-medium text-sm uppercase tracking-widest rounded-full border border-gray-200 hover:bg-gray-50 transition-colors duration-200 cursor-not-allowed whitespace-nowrap min-w-[160px] z-50 ${noBtnState ? 'fixed left-0 top-0' : 'relative'}`}
-            >
-                No Thanks
-            </motion.button>
+            {/* NO Button Wrapper to prevent layout shift */}
+            <div className="relative h-14 w-40">
+                <motion.button
+                    initial={false}
+                    animate={noBtnState ? { x: noBtnState.x, y: noBtnState.y } : { x: 0, y: 0 }}
+                    transition={{ duration: 0.1, ease: "linear" }} // Fast instant movement
+                    onMouseEnter={moveNoButton}
+                    onTouchStart={moveNoButton}
+                    className={`pointer-events-auto px-10 py-4 bg-white text-gray-400 font-body font-medium text-sm uppercase tracking-widest rounded-full border border-gray-200 hover:bg-gray-50 transition-colors duration-200 cursor-not-allowed whitespace-nowrap min-w-[160px] z-50 ${noBtnState ? 'fixed left-0 top-0' : 'absolute left-0 top-0'}`}
+                >
+                    No Thanks
+                </motion.button>
+            </div>
         </div>
     );
 };

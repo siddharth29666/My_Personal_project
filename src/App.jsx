@@ -62,7 +62,7 @@ function App() {
       {/* Background Music - Hidden */}
       <audio
         ref={audioRef}
-        src="https://assets.mixkit.co/music/preview/mixkit-piano-reflections-22.mp3"
+        src="/img/song.mpeg"
         loop
         className="hidden"
       />
